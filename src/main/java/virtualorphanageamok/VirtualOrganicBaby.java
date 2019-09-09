@@ -1,6 +1,6 @@
 package virtualorphanageamok;
 
-public class VirtualOrganicBaby extends VirtualBabyOrphanage {
+public class VirtualOrganicBaby extends VirtualBabies {
 
 	private int playLevel;
 	private int hungerLevel;
