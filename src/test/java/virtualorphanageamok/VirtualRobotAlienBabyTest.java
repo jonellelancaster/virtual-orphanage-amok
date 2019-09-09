@@ -4,12 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class VirtualRobotHumanBabyTest {
-
+public class VirtualRobotAlienBabyTest {
 	
-	RobotHumanBaby baby = new RobotHumanBaby("3","Mr.Roboto","A Screw Loose"); 
-		
-		
+	VirtualRobotBaby baby = new RobotAlienBaby("4","Blarka","Made in China"); 
+	
+	
 	@Test
 	public void shouldBeAbleToDoMaintence() {
 		baby.provideMaintence();
@@ -30,6 +29,11 @@ public class VirtualRobotHumanBabyTest {
 		assertEquals(60, baby.getBatteryLevel());
 		
 		}
-	
-	
+	@Test
+	public void shouldBeAbleToBeWalked() {
+		((RobotAlienBaby) baby).takeForWalk();
+		assertEquals(60, ((RobotAlienBaby) baby).getNeedsWalkedLevel());
+		
 	}
+
+}

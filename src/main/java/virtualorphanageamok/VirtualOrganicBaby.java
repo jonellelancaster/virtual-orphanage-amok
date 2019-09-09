@@ -1,21 +1,16 @@
 package virtualorphanageamok;
 
-public class VirtualOrganicBaby {
+public class VirtualOrganicBaby extends VirtualBabyOrphanage {
 
 	private int playLevel;
-	private String orphanID;
-	private String orphanName;
-	private String description;
 	private int hungerLevel;
 	private int energyLevel;
 	private int thirstLevel;
 
 	public VirtualOrganicBaby(String orphanID, String orphanName, String description) {
+		super(orphanID, orphanName, description);
 		this.playLevel = 50;
-		this.orphanID = orphanID;
-		this.orphanName = orphanName;
-		this.description = description;
-		this.hungerLevel = 50;
+
 		this.energyLevel = 50;
 		this.thirstLevel = 50;
 	}
@@ -24,6 +19,7 @@ public class VirtualOrganicBaby {
 		playLevel += 10;
 		energyLevel -= 5;
 		hungerLevel -= 5;
+
 	}
 
 	public int getPlayLevel() {

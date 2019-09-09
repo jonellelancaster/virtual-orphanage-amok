@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class VirtualAlienBabyTest {
+public class VirtualAlienBabyTest  {
 
 	AlienBaby baby = new AlienBaby("2", "VerDerk", "Evil");
 	
@@ -14,7 +14,6 @@ public class VirtualAlienBabyTest {
 		assertEquals(120, baby.getPlayLevel());
 
 	}
-
 	@Test
 	public void shouldBeAbleToFeed() {
 		baby.feedBaby();
@@ -39,9 +38,14 @@ public void shouldCleanCage() {
 	assertEquals(120, baby.getCageFilthLevel());
 
 }
+@Test
+public void shouldBeAbleToBeWalked() {
+	baby.takeForWalk();
+	assertEquals(60, baby.getNeedsWalkedLevel());
 	
 	
 	
+}
 	
 	
 }

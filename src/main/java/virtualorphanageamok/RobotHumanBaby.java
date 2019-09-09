@@ -1,28 +1,15 @@
 package virtualorphanageamok;
 
-public class RobotHumanBaby {
+public class RobotHumanBaby extends VirtualRobotBaby {
 
-	private int oilLevel;
+
 	
 	
-	
-	
-	
-	
-	
-	
-	public RobotHumanBaby(String string, String string2, String string3) {
-		this.oilLevel=50;
+	public RobotHumanBaby(String orphanID, String orphanName, String description) {
+	super(orphanID, orphanName, description);
 	}
 
-	public void provideMaintence() {
-		oilLevel+=10;
-	}
-
-	public int getOilLevel() {
-		return oilLevel;
-	}
-
+	
 	
 	
 	
