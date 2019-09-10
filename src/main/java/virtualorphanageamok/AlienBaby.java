@@ -33,7 +33,7 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 	}
 
 	public int getCageFilthLevel() {
-		return cageFilthLevel;
+		return this.cageFilthLevel;
 	}
 
 	@Override
@@ -48,5 +48,16 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 	@Override
 	public int getNeedsWalkedLevel() {
 		return this.needsWalkedLevel;
+	}
+	public void overAllHealth() {
+	getCageFilthLevel();
+	getNeedsWalkedLevel();
+	}
+	public void tick() {
+		this.cageFilthLevel-=5;
+		this.needsWalkedLevel-=5;
+		
+	 
+		
 	}
 }

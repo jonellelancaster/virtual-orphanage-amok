@@ -1,24 +1,23 @@
 package virtualorphanageamok;
 
-public class VirtualRobotBaby extends VirtualBabies  {
+public class VirtualRobotBaby extends VirtualBabies {
 
 	private int oilLevel;
 	private int playLevel;
 	private int batteryLevel;
-	
 
 	public VirtualRobotBaby(String orphanID, String orphanName, String description) {
 		super(orphanID, orphanName, description);
-		this.oilLevel=50;
-		this.playLevel =50;
-		this.batteryLevel=50;
-		
+		this.oilLevel = 50;
+		this.playLevel = 50;
+		this.batteryLevel = 50;
+
 	}
 
 	public void provideMaintence() {
-		this.oilLevel+=10;
-		this.batteryLevel+=5;
-		
+		this.oilLevel += 10;
+		this.batteryLevel += 5;
+
 	}
 
 	public int getOilLevel() {
@@ -26,11 +25,10 @@ public class VirtualRobotBaby extends VirtualBabies  {
 	}
 
 	public void playWithBaby() {
-		this.playLevel +=10;
-		this.batteryLevel-=5;
-		this.oilLevel-=2;
-		
-		
+		this.playLevel += 10;
+		this.batteryLevel -= 5;
+		this.oilLevel -= 2;
+
 	}
 
 	public int getPlayLevel() {
@@ -39,19 +37,31 @@ public class VirtualRobotBaby extends VirtualBabies  {
 
 	public void chargeBattery() {
 		this.batteryLevel += 10;
-		
+
 	}
 
 	public int getBatteryLevel() {
 		return this.batteryLevel;
-	
 
 	}
+
 	public void increaseBatteryLevel(int amountToIncrease) {
 		this.batteryLevel += amountToIncrease;
 	}
 
 	public void increasePlayLevel(int amountToIncrease) {
 		this.playLevel += amountToIncrease;
+	}
+
+	public void overAllHealth() {
+		getBatteryLevel();
+		getOilLevel();
+		getPlayLevel();
+	}
+
+	public void tick() {
+		this.oilLevel -= 5;
+		this.playLevel -= 5;
+		this.batteryLevel -= 5;
 	}
 }

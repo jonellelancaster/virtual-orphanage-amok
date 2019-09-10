@@ -10,15 +10,14 @@ public class VirtualOrganicBaby extends VirtualBabies {
 	public VirtualOrganicBaby(String orphanID, String orphanName, String description) {
 		super(orphanID, orphanName, description);
 		this.playLevel = 50;
-
 		this.energyLevel = 50;
 		this.thirstLevel = 50;
 	}
 
 	public void playWithBaby() {
-		playLevel += 10;
-		energyLevel -= 5;
-		hungerLevel -= 5;
+		this.playLevel += 10;
+		this.energyLevel -= 5;
+		this.hungerLevel -= 5;
 
 	}
 
@@ -28,10 +27,10 @@ public class VirtualOrganicBaby extends VirtualBabies {
 	}
 
 	public void feedBaby() {
-		hungerLevel += 10;
-		energyLevel -= 1;
-		thirstLevel -= 2;
-		playLevel -= 1;
+		this.hungerLevel += 10;
+		this.energyLevel -= 1;
+		this.thirstLevel -= 2;
+		this.playLevel -= 1;
 	}
 
 	public int getHunger() {
@@ -40,10 +39,10 @@ public class VirtualOrganicBaby extends VirtualBabies {
 	}
 
 	public void sleep() {
-		energyLevel += 10;
-		hungerLevel -= 5;
-		thirstLevel += 2;
-		playLevel -= 2;
+		this.energyLevel += 10;
+		this.hungerLevel -= 5;
+		this.thirstLevel += 2;
+		this.playLevel -= 2;
 
 	}
 
@@ -52,9 +51,9 @@ public class VirtualOrganicBaby extends VirtualBabies {
 	}
 
 	public void takeADrink() {
-		thirstLevel += 10;
-		energyLevel -= 2;
-		hungerLevel -= 1;
+		this.thirstLevel += 10;
+		this.energyLevel -= 2;
+		this.hungerLevel -= 1;
 	}
 
 	public int getThirst() {
@@ -67,5 +66,20 @@ public class VirtualOrganicBaby extends VirtualBabies {
 
 	public void increasePlayLevel(int amountToIncrease) {
 		this.playLevel += amountToIncrease;
+	}
+
+	public void overAllHealth() {
+		getEnergy();
+		getHunger();
+		getPlayLevel();
+		getThirst();
+	
+	}
+
+	public void tick() {
+		this.thirstLevel -= 5;
+		this.hungerLevel -= 5;
+		this.playLevel -= 5;
+		this.energyLevel -= 5;
 	}
 }

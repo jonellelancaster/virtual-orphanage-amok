@@ -6,6 +6,8 @@ public abstract class VirtualBabies {
 	private String orphanID;
 	private String orphanName;
 	private String description;
+	private int overAllHealth;
+
 
 	public VirtualBabies(String orphanID, String orphanName, String description) {
 		super();
@@ -26,8 +28,13 @@ public String getDescription() {
 }
 @Override
 public String toString() {
-	return "Our current inventory of children: Orphan ID-  " + orphanID + ", Their name:" + orphanName + ", and a brief description-" + description + ".";
+	return "Orphan ID:  " + orphanID + "\n Babies Name:" + orphanName + "\n Description:" + description + ".\n" + overAllHealth;
 }
 
+	
 }
+
+
+
+
 
