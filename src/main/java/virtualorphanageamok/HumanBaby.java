@@ -9,13 +9,16 @@ public class HumanBaby extends VirtualOrganicBaby {
 
 		this.diaperLevel = 50;
 	}
+	
 
 	public void feedBaby() {
 		this.diaperLevel -= 5;
+		this.organicFeedBaby();
 	}
 
 	public void sleep() {
 		this.diaperLevel -= 20;
+		this.organicSleep();
 	}
 
 	public void changeDiaper() {
@@ -23,19 +26,37 @@ public class HumanBaby extends VirtualOrganicBaby {
 		increaseEnergy(2);
 		increasePlayLevel(2);
 	}
-
-	public int getDiaperSoilLevel() {
-		return diaperLevel;
+	public void organicTakeADrink() {
+		this.organicTakeADrink();
+		this.diaperLevel -=10;
 	}
-
-	public void overAllHealth() {
-		getDiaperSoilLevel();
+	public int getDiaperLevel() {
+		return diaperLevel;
 
 	}
 
 	public void tick() {
 		this.diaperLevel -= 5;
+		this.organicTick();
+	}
+
+	@Override
+	public void determineOverAllHealth() {
+		System.out.println( "Orphan's Name: " + getOrphanName() +"\nPlay Level: " + getPlayLevel() + "\nThirst Level: " + getThirstLevel() + "\nHunger Level: "
+				+ getHunger() + "\nEnergy Level: " + getEnergy() + "\nDiaper Level: " + getDiaperLevel() + "\n ");
 
 	}
 
-}
+
+	@Override
+	public void playWithBaby() {
+	this.organicPlayWithBaby();
+	this.diaperLevel-=5;
+	}
+
+
+		
+		
+	}
+
+

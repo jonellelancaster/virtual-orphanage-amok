@@ -11,21 +11,32 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 		this.needsWalkedLevel = 50;
 
 	}
+
 	public void playWithBaby() {
-		this.needsWalkedLevel+=5;
-		this.cageFilthLevel +=2;
+		this.needsWalkedLevel += 5;
+		this.cageFilthLevel += 2;
+		this.organicPlayWithBaby();
+		
 	}
 
 	public void feedBaby() {
 		this.cageFilthLevel -= 5;
 		this.needsWalkedLevel -= 5;
+		this.organicFeedBaby();
+		
 	}
 
 	public void sleep() {
 		this.cageFilthLevel -= 10;
 		this.needsWalkedLevel -= 5;
+		this.organicSleep();
 	}
-
+	public void organicTakeADrink() {
+		this.organicTakeADrink();
+		this.cageFilthLevel-=5;
+		this.needsWalkedLevel-=5;
+	}
+	
 	public void cleanCage() {
 		this.cageFilthLevel += 10;
 		increaseEnergy(5);
@@ -49,15 +60,23 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 	public int getNeedsWalkedLevel() {
 		return this.needsWalkedLevel;
 	}
+
 	public void overAllHealth() {
-	getCageFilthLevel();
-	getNeedsWalkedLevel();
+		System.out.println("Cage Level:" + cageFilthLevel + "Walk Level:" + needsWalkedLevel);
 	}
+
 	public void tick() {
-		this.cageFilthLevel-=5;
-		this.needsWalkedLevel-=5;
-		
-	 
-		
+		this.cageFilthLevel -= 5;
+		this.needsWalkedLevel -= 5;
+		this.organicTick();
+
+	}
+
+	@Override
+	public void determineOverAllHealth() {
+		System.out.println("Orphan's Name: " + getOrphanName() +"\nPlay Level: " + getPlayLevel() + "\nThirst Level: " + getThirstLevel() + "\nHunger Level: "
+				+ getHunger() + "\nEnergy Level: " + getEnergy() + "\nCage Filth Level: " + getCageFilthLevel()
+				+ "\nNeeds Walked Level: " + getNeedsWalkedLevel() + "\n");
+
 	}
 }

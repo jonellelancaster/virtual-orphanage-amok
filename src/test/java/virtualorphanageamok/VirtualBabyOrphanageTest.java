@@ -34,7 +34,7 @@ public class VirtualBabyOrphanageTest {
 		RobotHumanBaby robot =new RobotHumanBaby ("2","","");
 		orphanage.addBaby(human);
 		orphanage.addBaby(robot);
-		orphanage.removeBaby(human);
+		orphanage.adoptBaby(human);
 		Collection<VirtualBabies> check =orphanage.getAllBabies();
 		assertThat(check, contains(robot));
 	}

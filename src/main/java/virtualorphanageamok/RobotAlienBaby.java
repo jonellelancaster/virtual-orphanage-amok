@@ -16,16 +16,34 @@ public class RobotAlienBaby extends VirtualRobotBaby implements CanWalk {
 
 	}
 
+	public void robotProvideMaintence() {
+		this.robotProvideMaintence();
+		this.needsWalkedLevel -= 5;
+	}
+
 	public int getNeedsWalkedLevel() {
 		return this.needsWalkedLevel;
 	}
 
-	public void overAllHealth() {
-		getNeedsWalkedLevel();
+	public void tick() {
+		this.needsWalkedLevel -= 5;
+		this.robotTick();
+
 	}
 
-	public void tick() {
+	@Override
+	public void determineOverAllHealth() {
+		System.out.println("Orphan's Name: " + getOrphanName() + "\nPlay Level: " + getPlayLevel() + "\nOil Level: "
+				+ getOilLevel() + "\nBattery Level: " + getBatteryLevel() + "\nNeeds Walked Level: "
+				+ getNeedsWalkedLevel() + "\n");
+
+	}
+
+	@Override
+	public void playWithBaby() {
+		this.robotPlayWithBaby();
 		this.needsWalkedLevel-=5;
-	
-}
+		
+		
+	}
 }

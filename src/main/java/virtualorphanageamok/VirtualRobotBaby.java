@@ -1,6 +1,6 @@
 package virtualorphanageamok;
 
-public class VirtualRobotBaby extends VirtualBabies {
+public abstract class VirtualRobotBaby extends VirtualBabies {
 
 	private int oilLevel;
 	private int playLevel;
@@ -14,7 +14,7 @@ public class VirtualRobotBaby extends VirtualBabies {
 
 	}
 
-	public void provideMaintence() {
+	public void robotProvideMaintence() {
 		this.oilLevel += 10;
 		this.batteryLevel += 5;
 
@@ -24,12 +24,13 @@ public class VirtualRobotBaby extends VirtualBabies {
 		return this.oilLevel;
 	}
 
-	public void playWithBaby() {
+	public void robotPlayWithBaby() {
 		this.playLevel += 10;
 		this.batteryLevel -= 5;
 		this.oilLevel -= 2;
 
 	}
+	
 
 	public int getPlayLevel() {
 		return this.playLevel;
@@ -53,13 +54,11 @@ public class VirtualRobotBaby extends VirtualBabies {
 		this.playLevel += amountToIncrease;
 	}
 
-	public void overAllHealth() {
-		getBatteryLevel();
-		getOilLevel();
-		getPlayLevel();
-	}
+	public abstract void determineOverAllHealth();
 
-	public void tick() {
+	public abstract void tick();
+
+	public void robotTick() {
 		this.oilLevel -= 5;
 		this.playLevel -= 5;
 		this.batteryLevel -= 5;

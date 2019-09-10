@@ -36,7 +36,7 @@ public class VirtualHumanBabyTest {
 @Test
 public void shouldChangeDiaper() {
 	baby.changeDiaper();
-	assertEquals(60, baby.getDiaperSoilLevel());
+	assertEquals(60, baby.getDiaperLevel());
 
 }
 	

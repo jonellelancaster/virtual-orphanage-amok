@@ -1,6 +1,6 @@
 package virtualorphanageamok;
 
-public class VirtualOrganicBaby extends VirtualBabies {
+public abstract class VirtualOrganicBaby extends VirtualBabies {
 
 	private int playLevel;
 	private int hungerLevel;
@@ -12,13 +12,20 @@ public class VirtualOrganicBaby extends VirtualBabies {
 		this.playLevel = 50;
 		this.energyLevel = 50;
 		this.thirstLevel = 50;
-	}
+		this.hungerLevel = 50;
 
-	public void playWithBaby() {
+	
+}
+	public void organicPlayWithBaby() {
 		this.playLevel += 10;
 		this.energyLevel -= 5;
 		this.hungerLevel -= 5;
+		this.thirstLevel-=5;
 
+	}
+
+	public int getThirstLevel() {
+		return this.thirstLevel;
 	}
 
 	public int getPlayLevel() {
@@ -26,7 +33,7 @@ public class VirtualOrganicBaby extends VirtualBabies {
 
 	}
 
-	public void feedBaby() {
+	public void organicFeedBaby() {
 		this.hungerLevel += 10;
 		this.energyLevel -= 1;
 		this.thirstLevel -= 2;
@@ -38,7 +45,7 @@ public class VirtualOrganicBaby extends VirtualBabies {
 		return hungerLevel;
 	}
 
-	public void sleep() {
+	public void organicSleep() {
 		this.energyLevel += 10;
 		this.hungerLevel -= 5;
 		this.thirstLevel += 2;
@@ -50,7 +57,7 @@ public class VirtualOrganicBaby extends VirtualBabies {
 		return energyLevel;
 	}
 
-	public void takeADrink() {
+	public void organicTakeADrink() {
 		this.thirstLevel += 10;
 		this.energyLevel -= 2;
 		this.hungerLevel -= 1;
@@ -68,15 +75,11 @@ public class VirtualOrganicBaby extends VirtualBabies {
 		this.playLevel += amountToIncrease;
 	}
 
-	public void overAllHealth() {
-		getEnergy();
-		getHunger();
-		getPlayLevel();
-		getThirst();
-	
-	}
+	public abstract void determineOverAllHealth();
 
-	public void tick() {
+	public abstract void tick();
+
+	public void organicTick() {
 		this.thirstLevel -= 5;
 		this.hungerLevel -= 5;
 		this.playLevel -= 5;
