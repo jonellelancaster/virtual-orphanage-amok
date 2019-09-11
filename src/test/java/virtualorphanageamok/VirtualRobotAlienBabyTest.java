@@ -11,7 +11,7 @@ public class VirtualRobotAlienBabyTest {
 	
 	@Test
 	public void shouldBeAbleToDoMaintence() {
-		baby.provideMaintence();
+		baby.robotOilBaby();
 		assertEquals(60, baby.getOilLevel());
 		
 		
@@ -25,7 +25,7 @@ public class VirtualRobotAlienBabyTest {
 		
 		@Test
 		public void shouldBeAbleToChargeBattery() {
-		baby.chargeBattery();
+		baby.robotChargeBattery();
 		assertEquals(60, baby.getBatteryLevel());
 		
 		}

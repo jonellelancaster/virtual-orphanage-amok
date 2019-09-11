@@ -15,10 +15,14 @@ public class RobotAlienBaby extends VirtualRobotBaby implements CanWalk {
 		increasePlayLevel(2);
 
 	}
-
-	public void robotProvideMaintence() {
-		this.robotProvideMaintence();
-		this.needsWalkedLevel -= 5;
+	public void oilBaby() {
+		this.robotOilBaby();
+		this.needsWalkedLevel-=5;
+	
+	}
+	public void chargeBattery() {
+		this.robotChargeBattery();
+		this.needsWalkedLevel-=5;
 	}
 
 	public int getNeedsWalkedLevel() {

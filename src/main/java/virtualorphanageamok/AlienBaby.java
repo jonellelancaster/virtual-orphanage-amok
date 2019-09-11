@@ -31,7 +31,7 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 		this.needsWalkedLevel -= 5;
 		this.organicSleep();
 	}
-	public void organicTakeADrink() {
+	public void takeADrink() {
 		this.organicTakeADrink();
 		this.cageFilthLevel-=5;
 		this.needsWalkedLevel-=5;
@@ -61,9 +61,6 @@ public class AlienBaby extends VirtualOrganicBaby implements CanWalk {
 		return this.needsWalkedLevel;
 	}
 
-	public void overAllHealth() {
-		System.out.println("Cage Level:" + cageFilthLevel + "Walk Level:" + needsWalkedLevel);
-	}
 
 	public void tick() {
 		this.cageFilthLevel -= 5;

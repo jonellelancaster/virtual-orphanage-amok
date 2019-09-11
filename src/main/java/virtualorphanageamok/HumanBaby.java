@@ -26,7 +26,7 @@ public class HumanBaby extends VirtualOrganicBaby {
 		increaseEnergy(2);
 		increasePlayLevel(2);
 	}
-	public void organicTakeADrink() {
+	public void takeADrink() {
 		this.organicTakeADrink();
 		this.diaperLevel -=10;
 	}

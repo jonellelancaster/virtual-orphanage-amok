@@ -10,7 +10,7 @@ public class VirtualBabyOrphanage {
 
 	public void addBaby(VirtualBabies baby) {
 		babiesInShelter.put(baby.getOrphanID(), baby);
-	
+
 	}
 
 	public Collection<VirtualBabies> getAllBabies() {
@@ -29,8 +29,9 @@ public class VirtualBabyOrphanage {
 
 		}
 	}
+
 	public void tickAllBabies() {
-		for(VirtualBabies baby: babiesInShelter.values()) {
+		for (VirtualBabies baby : babiesInShelter.values()) {
 			baby.tick();
 		}
 	}
@@ -46,12 +47,78 @@ public class VirtualBabyOrphanage {
 	public boolean canPLayWithBaby(String orphanID) {
 		return babiesInShelter.containsKey(orphanID);
 	}
+
 	public void feedAllBabies() {
-		for(VirtualBabies baby: babiesInShelter.values()) {
-			if(baby instanceof VirtualOrganicBaby) {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof VirtualOrganicBaby) {
 				VirtualOrganicBaby babyToFeed = (VirtualOrganicBaby) baby;
 				babyToFeed.organicFeedBaby();
+			}
 		}
 	}
+
+	public void giveAllBabiesADrink() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof VirtualOrganicBaby) {
+				VirtualOrganicBaby babyToDrink = (VirtualOrganicBaby) baby;
+				babyToDrink.organicTakeADrink();
+			}
+		}
+	}
+
+	public void putAllBabiesToNap() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof VirtualOrganicBaby) {
+				VirtualOrganicBaby babyToNap = (VirtualOrganicBaby) baby;
+				babyToNap.organicSleep();
+
+			}
+		}
+	}
+
+	public void oilRobotBabies() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof VirtualRobotBaby) {
+				VirtualRobotBaby oilBaby = (VirtualRobotBaby) baby;
+				oilBaby.robotOilBaby();
+			}
+		}
+
+	}
+
+	public void chargeRobotBabies() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof VirtualRobotBaby) {
+				VirtualRobotBaby chargeBabies = (VirtualRobotBaby) baby;
+				chargeBabies.robotChargeBattery();
+			}
+		}
+	}
+
+	public void changeBabyDiapers() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof HumanBaby) {
+				HumanBaby babyToChange = (HumanBaby) baby;
+				babyToChange.changeDiaper();
+			}
+		}
+	}
+
+	public void takeBabiesWalking() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof CanWalk) {
+				CanWalk babyToWalk = (CanWalk) baby;
+				babyToWalk.takeForWalk();
+			}
+		}
+	}
+
+	public void cleanCages() {
+		for (VirtualBabies baby : babiesInShelter.values()) {
+			if (baby instanceof AlienBaby) {
+				AlienBaby alienCageToClean = (AlienBaby) baby;
+				alienCageToClean.cleanCage();
+			}
+		}
 	}
 }

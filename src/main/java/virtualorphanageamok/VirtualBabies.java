@@ -39,6 +39,6 @@ public abstract void playWithBaby();
 
 	
 	public abstract void tick();
-//	public abstract String determineOverallHealth();
+
 
 }

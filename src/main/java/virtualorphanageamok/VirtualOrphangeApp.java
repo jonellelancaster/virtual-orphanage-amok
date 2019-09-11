@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class VirtualOrphangeApp {
 
 	static VirtualBabyOrphanage lonelyHeartOrphange = new VirtualBabyOrphanage();
+	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
-		Scanner input = new Scanner(System.in);
 		lonelyHeartOrphange.addBaby(new HumanBaby("1", "Sally", "Human Baby"));
 		lonelyHeartOrphange.addBaby(new AlienBaby("2", "Zarblurg", "Alien Baby"));
 		lonelyHeartOrphange.addBaby(new RobotHumanBaby("3", "R2B", "Robot Human Baby"));
@@ -28,78 +28,115 @@ public class VirtualOrphangeApp {
 			switch (menuChoice) {
 			case 1:
 				System.out.println(lonelyHeartOrphange.getAllBabies());
-				userMenu();
 				break;
 			case 2:
 				lonelyHeartOrphange.overAllHealthForAllBabies();
 				break;
-
-			case 3:// adopt
-				System.out.println("Which baby would you like to take home? Please enter the Orphan ID");
-
-				String babyNameToBeAdopted = input.nextLine();
-
-				if (lonelyHeartOrphange.isBabyAdoptable(babyNameToBeAdopted)) {
-					VirtualBabies orphanIDToBeAdopted = lonelyHeartOrphange.findbaby(babyNameToBeAdopted);
-					lonelyHeartOrphange.adoptBaby(orphanIDToBeAdopted);
-					System.out.println("Thank you for your purchase of " + orphanIDToBeAdopted.getOrphanName());
-
-				} else {
-					System.out.println("Please choose a baby within our care.");
-					System.out.println(lonelyHeartOrphange.getAllBabies());
-
-				}
+			case 3:
+				adoptBaby();
 				break;
-			case 4:// leave
-				System.out.println("What is the name of the baby?");
-				String newOrphanName = input.nextLine();
-				System.out.println(
-						"Please provide description of the child(HumanBaby, RobotHumanBaby, AlienBaby, RobotAlienBaby)");
-				String newOrphanDescription = input.nextLine();
-				System.out.println("What is the Ophan's ID number");
-				String newOrphanID = input.nextLine();
-				if (newOrphanDescription.contentEquals("HumanBaby")) {
-					lonelyHeartOrphange.addBaby(new HumanBaby(newOrphanID, newOrphanName, newOrphanDescription));
-				} else if (newOrphanDescription.contentEquals("RobotHumanBaby")) {
-					lonelyHeartOrphange.addBaby(new RobotHumanBaby(newOrphanID, newOrphanName, newOrphanDescription));
-				} else if (newOrphanDescription.contentEquals("RobotAlienBaby")) {
-					lonelyHeartOrphange.addBaby(new RobotAlienBaby(newOrphanID, newOrphanName, newOrphanDescription));
-				} else if (newOrphanDescription.contentEquals("AlienBaby")) {
-					lonelyHeartOrphange.addBaby(new AlienBaby(newOrphanID, newOrphanName, newOrphanDescription));
-				} else {
-					System.out.println("Please give a valid description");
-
-				}
+			case 4:
+				leaveBaby();
 				break;
-			case 5:// play with a baby
-				System.out.println("Which baby would you like to play with? Please enter orphan ID");
-				System.out.println(lonelyHeartOrphange.getAllBabies());
-				String babyIDToBePlayedWith = input.nextLine();
-				if (lonelyHeartOrphange.canPLayWithBaby(babyIDToBePlayedWith)) {
-					VirtualBabies babyToBePlayedWith = lonelyHeartOrphange.findbaby(babyIDToBePlayedWith);
-					babyToBePlayedWith.playWithBaby();
-
-				} else {
-					System.out.println("Please choose a baby within our care.");
-
-				}
+			case 5:
+				play();
 				break;
 			case 6:
 				lonelyHeartOrphange.feedAllBabies();
-				System.out.println("Organic babies love to eat");
+				System.out.println("Organic babies love to eat.");
 				break;
-			case 7: // give organic babies a drink
-			case 8:// put organic babies to nap
-			case 9:// provide maintenance
-			case 10:// charge robots
-			case 11:// change diapers
-			case 12: // alien walk
-			case 13: // clean cages
-			case 14:// quit
+			case 7:
+				lonelyHeartOrphange.giveAllBabiesADrink();
+				System.out.println("Organic babies love to drink.");
+				break;
+			case 8:
+				lonelyHeartOrphange.putAllBabiesToNap();
+				System.out.println("Organic babies are sleeping.");
+				break;
+			case 9:
+				lonelyHeartOrphange.oilRobotBabies();
+				System.out.println("Robots love oil to prevent rust.");
+				break;
+			case 10:
+				lonelyHeartOrphange.chargeRobotBabies();
+				System.out.println("Batteries are a robot equivalent to food!");
+				break;
+			case 11:
+				lonelyHeartOrphange.changeBabyDiapers();
+				System.out.println("Diapers are no longer crappy!");
+				break;
+			case 12:
+				lonelyHeartOrphange.takeBabiesWalking();
+				System.out.println("Aliens are born walking.");
+				break;
+			case 13:
+				lonelyHeartOrphange.cleanCages();
+				System.out.println("Alien cages are now less Alien-y.");
+				break;
+			case 14:
+				System.out.println("We get it....it was a very long menu!");
+				System.exit(0);
+				break;// quit
 
 			}
 			lonelyHeartOrphange.tickAllBabies();
 			userMenu();
+		}
+
+	}
+
+	private static void play() {
+		System.out.println("Which baby would you like to play with? Please enter orphan ID");
+		System.out.println(lonelyHeartOrphange.getAllBabies());
+		String babyIDToBePlayedWith = input.nextLine();
+		if (lonelyHeartOrphange.canPLayWithBaby(babyIDToBePlayedWith)) {
+			VirtualBabies babyToBePlayedWith = lonelyHeartOrphange.findbaby(babyIDToBePlayedWith);
+			babyToBePlayedWith.playWithBaby();
+
+		} else {
+			System.out.println("Please choose a baby within our care.");
+
+		}
+
+	}
+
+	private static void leaveBaby() {
+		System.out.println("What is the name of the baby?");
+		String newOrphanName = input.nextLine();
+		System.out.println(
+				"Please provide description of the child(HumanBaby, RobotHumanBaby, AlienBaby, RobotAlienBaby)");
+		String newOrphanDescription = input.nextLine();
+		System.out.println("What is the Ophan's ID number");
+		String newOrphanID = input.nextLine();
+		if (newOrphanDescription.contentEquals("HumanBaby")) {
+			lonelyHeartOrphange.addBaby(new HumanBaby(newOrphanID, newOrphanName, newOrphanDescription));
+		} else if (newOrphanDescription.contentEquals("RobotHumanBaby")) {
+			lonelyHeartOrphange.addBaby(new RobotHumanBaby(newOrphanID, newOrphanName, newOrphanDescription));
+		} else if (newOrphanDescription.contentEquals("RobotAlienBaby")) {
+			lonelyHeartOrphange.addBaby(new RobotAlienBaby(newOrphanID, newOrphanName, newOrphanDescription));
+		} else if (newOrphanDescription.contentEquals("AlienBaby")) {
+			lonelyHeartOrphange.addBaby(new AlienBaby(newOrphanID, newOrphanName, newOrphanDescription));
+		} else {
+			System.out.println("Please give a valid description");
+
+		}
+
+	}
+
+	private static void adoptBaby() {
+		System.out.println("Which baby would you like to take home? Please enter the Orphan ID");
+
+		String babyNameToBeAdopted = input.nextLine();
+
+		if (lonelyHeartOrphange.isBabyAdoptable(babyNameToBeAdopted)) {
+			VirtualBabies orphanIDToBeAdopted = lonelyHeartOrphange.findbaby(babyNameToBeAdopted);
+			lonelyHeartOrphange.adoptBaby(orphanIDToBeAdopted);
+			System.out.println("Thank you for your purchase of " + orphanIDToBeAdopted.getOrphanName());
+
+		} else {
+			System.out.println("Please choose a baby within our care.");
+			System.out.println(lonelyHeartOrphange.getAllBabies());
+
 		}
 
 	}

@@ -12,7 +12,7 @@ public class VirtualRobotHumanBabyTest {
 		
 	@Test
 	public void shouldBeAbleToDoMaintence() {
-		baby.provideMaintence();
+		baby.oilBaby();
 		assertEquals(60, baby.getOilLevel());
 		
 		

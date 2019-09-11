@@ -12,11 +12,7 @@ public abstract class VirtualRobotBaby extends VirtualBabies {
 		this.playLevel = 50;
 		this.batteryLevel = 50;
 
-	}
-
-	public void robotProvideMaintence() {
-		this.oilLevel += 10;
-		this.batteryLevel += 5;
+	
 
 	}
 
@@ -30,14 +26,21 @@ public abstract class VirtualRobotBaby extends VirtualBabies {
 		this.oilLevel -= 2;
 
 	}
+	public void robotOilBaby() {
+		this.playLevel-=5;
+		this.batteryLevel-=5;
+		this.oilLevel +=10;
+	}
 	
 
 	public int getPlayLevel() {
 		return this.playLevel;
 	}
 
-	public void chargeBattery() {
+	public void robotChargeBattery() {
 		this.batteryLevel += 10;
+		this.playLevel-=5;
+		this.oilLevel-=5;
 
 	}
 

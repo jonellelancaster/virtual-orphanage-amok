@@ -12,10 +12,13 @@ public class RobotHumanBaby extends VirtualRobotBaby {
 	@Override
 	public void tick() {
 		this.robotTick();
-		
 	}
-	public void robotProvideMaintence() {
-		this.robotProvideMaintence();
+	public void chargeBattery() {
+		this.robotChargeBattery();
+	
+	}
+	public void oilBaby() {
+		this.robotOilBaby();
 	}
 	@Override
 	public void determineOverAllHealth() {
